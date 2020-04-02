@@ -12,13 +12,13 @@ service postgresql start;
 msfdb init;
 git clone https://github.com/robertdavidgraham/masscan.git;
 cd masscan;
-make -j8 && make install;
+make -j8 && sudo make install;
 cd ..;
 echo Installation step is done, now starting smb scanner...;
 sleep 5s;
 read -p 'IP Range to exploit? [ 1.0.0.0-1.255.255.255 ]' ip;
 case $ready in
-	Y) masscan -p 445 --range $ip --rate 10000 >smb.scan&
+	Y) sudo masscan -p 445 --range $ip --rate 10000 >smb.scan&
 esac
 sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
