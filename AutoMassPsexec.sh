@@ -18,7 +18,7 @@ echo Installation step is done, now starting smb scanner...;
 sleep 5s;
 read -p 'IP Range to exploit? [ 1.0.0.0-1.255.255.255 ]' ip;
 case $ready in
-	Y) sudo masscan -p 445 --range $ip --rate 10000 >smb.scan&
+	Y) sudo masscan -p 445 --range $ip --rate 10000 -oB smb.scan&
 esac
 sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
