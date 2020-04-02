@@ -16,7 +16,10 @@ make -j8 && make install;
 cd ..;
 echo Installation step is done, now starting smb scanner...;
 sleep 5s;
-masscan -p 445 --range $i --rate 10000 >smb.scan&
+read -p 'IP Range to exploit? [ 1.0.0.0-1.255.255.255 ]' ip;
+case $ready in
+	Y) masscan -p 445 --range $ip --rate 10000 >smb.scan&
+esac
 sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
 sleep 1m;
