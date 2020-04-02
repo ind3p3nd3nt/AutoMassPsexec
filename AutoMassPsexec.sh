@@ -23,7 +23,7 @@ cp ./rdpscan ../rdp;
 cd ..;
 echo Installation step is done, now starting rdp scanner...;
 sleep 5s;
-masscan -p 3389 --range $1 --rate 10000 | ./rdp --file - >rdp.lst &
+masscan -p 445 --range $1 --rate 10000 | ./rdp --file - >rdp.lst &
 sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
 sleep 1m;
