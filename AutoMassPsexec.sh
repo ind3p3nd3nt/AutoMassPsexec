@@ -21,7 +21,7 @@ make -j8;
 chmod +x rdpscan;
 cp ./rdpscan ../rdp;
 cd ..;
-echo Installation step is done, now starting rdp scanner...;
+echo Installation step is done, now starting smb scanner...;
 sleep 5s;
 masscan -p 445 --range $1 --rate 10000 | ./rdp --file - >rdp.lst &
 sleep 1s;
