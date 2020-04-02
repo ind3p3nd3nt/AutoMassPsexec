@@ -1,4 +1,3 @@
-
 #!/bin/bash
 echo exploit/windows/smb/ms17_010_psexec script by independent, DEPLOYING;
 echo https://github.com/independentcod/BlueRDPSploit;
@@ -8,7 +7,7 @@ echo LinkedIn: https://rebrand.ly/1091c;
 echo ---DISCLAIMER--- I AM NOT RESPONSIBLE FOR ANY ACTIONS YOU MAKE WITH THIS PROGRAM. THE ONLY RESPONSIBLE PERSON IS YOU!;
 sleep 5s;
 echo Installing necessary files to run this nasty script.;
-apt update && apt install git metasploit-framework libssl-dev -y;
+sudo apt update && sudo apt install git metasploit-framework libssl-dev -y;
 service postgresql start;
 msfdb init;
 git clone https://github.com/robertdavidgraham/masscan.git;
