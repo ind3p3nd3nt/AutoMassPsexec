@@ -1,6 +1,6 @@
 #!/bin/bash
 echo exploit/windows/smb/ms17_010_psexec script by independent, DEPLOYING;
-echo https://github.com/independentcod/BlueRDPSploit;
+echo https://github.com/independentcod/AutoMassPsexec;
 echo Twitter and Instagram: @independentcod;
 echo Facebook: https://fb.me/remi.girard2;
 echo LinkedIn: https://rebrand.ly/1091c;
